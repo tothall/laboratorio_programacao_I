@@ -6,9 +6,10 @@ from crud_listar import listar
 from crud_deletar import deletar
 from cabecalhos import titulo_automarket, titulo_buscar, titulo_deletar, titulo_editar, titulo_registrar, titulo_listar
 import time
+import persistencia
 import os
 
-portfolio = []
+portfolio = persistencia.cria_banco()
 while True:
     os.system('cls' if os.name == 'nt' else 'clear')
     titulo_automarket()
@@ -52,6 +53,7 @@ OP: ''')
             os.system('cls' if os.name == 'nt' else 'clear')
             titulo_automarket()
             print('\nSAINDO DO SISTEMA...')
+            persistencia.salva_banco(portfolio)
             time.sleep(1)
             break
         case _:
